@@ -1,0 +1,97 @@
+
+digraph G {
+
+#graph [pad="0.212,0.055" bgcolor=lightgray]
+#newrank=true;
+#overlap=scale;
+
+Rheb        [shape=oval,    style=filled,   color=khaki,            label="Rheb"];
+mTORC1      [shape=oval,    style=filled,   color=coral,            label="mTORC1"] ;
+TSC         [shape=oval,    style=filled,   color=lightblue,        label="TSC1-TSC2"];
+AMPK        [shape=oval,    style=filled,   color=gold,             label="AMPK"];
+GSK         [shape=oval,    style=filled,   color=mistyrose2,       label="GSK-3ß"];
+Erk         [shape=oval,    style=filled,   color=burlywood1,       label="Erk"];
+MAPKs       [shape=oval,    style=filled,   color=navajowhite2,     label="MAPKs"];
+ULK1        [shape=oval,    style=filled,   color=plum,             label="ULK1"];
+Vps34       [shape=oval,    style=filled,   color=darkslategray1,   label="Vps34"];
+TFEB        [shape=oval,    style=filled,   color=lemonchiffon2,    label="TFEB"];
+TRIM37      [shape=oval,    style=filled,   color=tan,              label="TRIM37"];
+Rags        [shape=oval,    style=filled,   color=pink3,            label="Rags"];
+Sestrin2    [shape=oval,    style=filled,   color=slategray2,       label="SESN2", ];
+GATOR2      [shape=oval,    style=filled,   color=orange,           label="GATOR2"];
+GATOR1      [shape=oval,    style=filled,   color=palegreen,        label="GATOR1"];
+KICSTOR     [shape=oval,    style=filled,   color=lightgray,        label="KICSTOR"];
+CASTOR1     [shape=oval,    style=filled,   color=aquamarine,       label="CASTOR1"]  ;
+AXIN        [shape=oval,    style=filled,   color=thistle,          label="AXIN"];
+LKB1        [shape=oval,    style=filled,   color=turquoise,        label="LKB1"];
+Akt         [shape=oval,    style=filled,   color=lightgoldenrod,   label="Akt"];
+PRAS40      [shape=oval,    style=filled,   color=olivedrab1,       label="PRAS40"] ;
+REDD1       [shape=oval,    style=filled,   color=lightseagreen,    label="REDD1"];
+SAMTOR      [shape=oval,    style=filled,   color=thistle1,         label="SAMTOR"];
+p300        [shape=oval,    style=filled,   color=skyblue1,         label="p300"];
+SREBP       [shape=oval,    style=filled,   color=pink,             label="SREBP 1/2"];
+#TSC2       [shape=oval,    style=filled,   color=springgreen1,     label="TSC2"];
+LKB2        [style=invis];
+
+
+{rank = same; TSC; Rheb;}
+{rank = same; mTORC1; AMPK;}
+{rank = same; REDD1; AMPK;}
+{rank = same; Rheb; GATOR1}
+{rank = same; REDD1; Erk;}
+
+{rank = same; TRIM37; GATOR1;}
+{rank = same; Akt; KICSTOR;}
+{rank = same; MAPKs; Rags;}
+
+
+
+{rank = same; LKB1; ULK1;}
+{rank = same; AXIN; Vps34;}
+
+
+Rheb -> LKB2 [style=invis];
+LKB2 -> AMPK [style=invis];
+TRIM37 -> GATOR1 [style=invis];
+
+
+
+Rheb -> mTORC1;
+AMPK        -> mTORC1   [arrowhead="tee"] 	;
+ULK1        -> mTORC1   [arrowhead="tee"] 	;
+TRIM37      -> mTORC1;
+Rags        -> mTORC1;
+GATOR1      -> mTORC1   [arrowhead="tee"] 	;
+
+Akt         -> TSC      [arrowhead="tee"] 	;
+Akt         -> PRAS40   [arrowhead="tee"] 	;
+
+TSC         -> Rheb     [arrowhead="tee"] 	;
+
+MAPKs       -> Rheb     [arrowhead="tee"] 	;
+mTORC1      -> ULK1     [arrowhead="tee"] 	;
+ULK1        -> AMPK     [arrowhead="tee"] 	;
+ULK1        -> Vps34                        ;
+mTORC1      -> TFEB     [arrowhead="tee"] 	;
+Sestrin2    -> GATOR2   [arrowhead="tee"] 	;
+GATOR2      -> GATOR1   [arrowhead="tee"] 	;
+KICSTOR     -> Rags     [arrowhead="tee"] 	;
+CASTOR1     -> GATOR2   [arrowhead="tee"] 	;
+AXIN        -> LKB1                         ;
+LKB1        -> AMPK;
+
+SAMTOR      -> GATOR1   [arrowhead="tee"]   ;
+mTORC1      -> p300                         ;
+mTORC1      -> SREBP                        ;
+
+AMPK        -> TSC     [arrowhead="tee"] 	;
+Erk         -> TSC      	;
+GSK         -> TSC     [arrowhead="tee"] ;                    
+REDD1       -> TSC                          ;
+PRAS40      -> mTORC1  [arrowhead="tee"] 	;
+
+#[constraint=false]
+
+} 
+
+
